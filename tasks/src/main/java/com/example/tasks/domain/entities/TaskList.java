@@ -22,7 +22,7 @@ public class TaskList {
     private UUID id;
 
     @Column(name = "title", nullable = false)
-    private String total;
+    private String title;
 
     @Column(name = "description")
     private String description;
@@ -39,10 +39,10 @@ public class TaskList {
     public TaskList() {
     }
 
-    public TaskList(UUID id, String total, String description, List<Task> tasks, LocalDateTime created,
+    public TaskList(UUID id, String title, String description, List<Task> tasks, LocalDateTime created,
             LocalDateTime updated) {
         this.id = id;
-        this.total = total;
+        this.title = title;
         this.description = description;
         this.tasks = tasks;
         this.created = created;
@@ -57,12 +57,12 @@ public class TaskList {
         this.id = id;
     }
 
-    public String getTotal() {
-        return total;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTotal(String total) {
-        this.total = total;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -102,7 +102,7 @@ public class TaskList {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
-        result = prime * result + ((total == null) ? 0 : total.hashCode());
+        result = prime * result + ((title == null) ? 0 : title.hashCode());
         result = prime * result + ((description == null) ? 0 : description.hashCode());
         result = prime * result + ((tasks == null) ? 0 : tasks.hashCode());
         result = prime * result + ((created == null) ? 0 : created.hashCode());
@@ -124,10 +124,10 @@ public class TaskList {
                 return false;
         } else if (!id.equals(other.id))
             return false;
-        if (total == null) {
-            if (other.total != null)
+        if (title == null) {
+            if (other.title != null)
                 return false;
-        } else if (!total.equals(other.total))
+        } else if (!title.equals(other.title))
             return false;
         if (description == null) {
             if (other.description != null)
@@ -154,9 +154,10 @@ public class TaskList {
 
     @Override
     public String toString() {
-        return "TaskList [id=" + id + ", total=" + total + ", description=" + description + ", tasks=" + tasks
+        return "TaskList [id=" + id + ", title=" + title + ", description=" + description + ", tasks=" + tasks
                 + ", created=" + created + ", updated=" + updated + "]";
     }
+
 
 
 
